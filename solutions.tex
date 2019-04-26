@@ -322,7 +322,22 @@
             \end{enumerate}
         \item Proof axiom of replacement implis axiom of specification:
             \begin{enumerate}
-                
+                \item The axiom of replacement states that for any set A and
+                    objects $x \in A$ and y ``there exists a set $\{y : P(x, y)$
+                    is true for some $x \in A\}$'.
+                \item Given this axiom lets consider a possible property $P(x,y) = (y = x \land P(y))$, where
+                    $P(x)$ is an arbitrary property.
+                \item Applied to the axiom of choice, this property proves the
+                    existence of the set $\{y : y = x \land P(y) $ for some $x
+                    \in A\}$. 
+                \item Applying the substitution property to the objects in
+                    question, we can rephrase this set as $\{x: x \in A \land
+                    P(x)\} \equiv \{x \in A: P(x)\}$. This is the axiom of 
+                    of specification, and so we have derived it as a selective
+                    choice of $P(x,y)$.
             \end{enumerate}
+    \end{enumerate}
+    \subsection{Russell's Paradox}
+    \begin{enumerate}
     \end{enumerate}
 \end{document}
