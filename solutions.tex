@@ -1,0 +1,328 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\title{Solution Manual for Analysis I}
+\author{Dean F. Valentine Jr.}
+
+\begin{document}
+    \maketitle
+    \section{Beginning Chapter}
+    \section{Natural Numbers}
+    \section{Set Theory}
+    \subsection{Fundamentals}
+    \begin{enumerate}
+        \item Reflexivity:
+            \begin{enumerate}
+                \item Equality between sets is defined as: $(\forall x \in A: x
+                    \in B) \land (\forall x \in B: x \in A)$
+                \item A set is defined as a collection of objects.
+                \item It is a contradiction for any object $x$ to satisfy $x
+                    \in A$ be true but also $x \notin A$, so equality of sets
+                    is reflexive ($A = A$), meaning all objects that satisfy
+                    the claim $x \in A$ also satisfy $x \in A$, and
+                    ``vice-versa''
+            \end{enumerate}
+            Symmetry:
+            \begin{enumerate}
+                \item To say that sets A and B are equal, as per our definition
+                    of equality, is to say $\forall x \in A: x \in B \land
+                    \forall x \in B: x \in A$.
+                \item So, if $A = B$, and by definition $\forall x \in A: x \in
+                    B \land \forall x \in B: x \in A$, then we can just swap
+                    the given claims around as show that $\forall x \in B: x
+                    \in A \land \forall x \in A: x \in B$, and see that B = A.
+            \end{enumerate}
+            Transitivity:
+            \begin{enumerate}
+                \item Suppose that among three sets A,B, and C, sets A = B, and
+                    B = C
+                \item Consider $\exists x : x \in A$
+                \item Since $A = B$, $\forall y \in A : y \in B$, and so $x \in B$
+                \item But also because $B = C$, $\forall z \in B, z \in C$, and so also $x \in C$
+                \item Thus, $\forall x \in A, x \in C$, and the same logic can
+                    be applied in reverse to find $\forall x \in C, x \in A$, and so $A = C$
+            \end{enumerate}
+        \item
+            \begin{enumerate}
+                \item Axiom 3.2 says that there exists a set $\emptyset$, the set of no elements.
+                \item Axiom 3.1 says that if A is a set, it is also an object,
+                    and by the definition of sets (3.1.1), there exists the set $X$
+                    such that $A \in X$. Thus, there exists some set $A_1$ which contains the object $\emptyset$
+                \item Two sets are not equal if they do not share each others
+                    objects. $A_1$ contains $\emptyset$, but $\emptyset$ is
+                    defined as having lacking objects, so these two sets are
+                    not equal.
+                \item Similarly we can consider the set $A_2$ which contains only $A_1$, which is not equal to
+                    either $A_1$ or $\emptyset$ because neither of them contain $A_1$, and instead contain
+                    $\emptyset$ and no objects, respectively.
+                \item Lastly we think of a set $A_3 : \emptyset \in A_3 \land
+                    A_2 \in A_3$, and see that this does not contain the sam
+                    objects as $\emptyset$, $A_1$, or $A_3$. $\emptyset \notin
+                    A_2$, $A_1 \notin A_1$, and neither $\emptyset$ nor $A_1$
+                    are in $\emptyset$ so at this point we have proven 3.2.
+            \end{enumerate}
+        \item Proof $\{a,b\} = \{a\} \cup \{b\}$:
+            \begin{enumerate}
+                \item The union between sets A and B as defined in
+                    Axiom 3.4 is set whose elements are contained by A
+                    or B or both.
+                \item $\{a\} \cup \{b\}$ contains $a$, because $a \in \{a\}$
+                \item $\{a\} \cup \{b\}$ contains $b$, because $b \in \{b\}$
+                \item There can be no other objects in  $\{a\} \cup \{b\}$, because 
+                    all objects in $\{a\} \cup \{b\}$ must either be in $\{a\}$
+                    or $\{b\}$ or both by the definition of a union, and the
+                    existence of a third object would imply that $\{a\}$ and
+                    $\{b\}$ contained altogether three distinct objects, a contradiction.
+            \end{enumerate}
+            Proof of commutativity:
+            \begin{enumerate}
+                \item Suppose $\exists x \in A \cup B$. That means by Axiom 3.4 
+                    $x \in A \lor x \in B$. If $x \in A$, then $x \in B \cup
+                    A$, because $B \cup A$ is the set of all elements either in
+                    $B$ or $A$.  If $x \in B$, then by the same logic $x \in B
+                    \cup A$ as well, and so we can say $\forall x \in A \cup B:
+                    x \in B \cup A$, and we have proven their equality.
+            \end{enumerate}
+            Proof $A \cup A = A$
+            \begin{enumerate}
+                \item For the sake of contradiction assume $A \neq A \cup A$
+                \item This implies $\exists x : x \in A \land x \notin A \cup A$.
+                \item But $x \notin A \cup A \rightarrow x \notin A \land x \notin A$. 
+                \item Both of these (equivalent) implied statements contradict the earlier
+                    one, that $\exists x : x \in A \land x \notin A \cup A$.
+            \end{enumerate}
+            Proof $A \cup \emptyset = A$ and $\emptyset \cup A = A$
+            \begin{enumerate}
+                \item $\forall x \in A \cup \emptyset: x \in A \lor x \in \emptyset$, by Axiom 3.4
+                \item By axiom 3.2, $\neg\exists x \in \emptyset$.
+                \item This means that $\forall x \in A \cup \emptyset: x \in
+                    A$. Now we must prove $\neg\exists x \in A : x \notin A \cup \emptyset$.
+                \item Suppose for sake of contradiction $\exists x \in A : x \notin A \cup \emptyset$.
+                \item This would mean $x \notin A \land x \notin \emptyset$, by Axiom 3.4.
+                \item $x$ is obviously not in the empty set, but by our assumption $x \in A$,
+                    meaning we have contradicted ourselves.
+                \item The sum of the two statements we have just proved is equivalent to saying $A = A \cup \emptyset$.
+                    Because of commutitivity this also means $A = \emptyset \cup A$.
+            \end{enumerate}
+        \item Proof $A \subseteq B \land B \subseteq C \implies A \subseteq C$:
+            \begin{enumerate}
+                \item $A \subseteq B \equiv \forall x \in A : x \in B$
+                \item $B \subseteq C \equiv \forall x \in B : x \in C$
+                \item Thus, $x \in A \implies x \in B$, and $x \in B \implies x \in C$,
+                    so $x \in A \implies x \in B \implies x \in C$ or $x \in A \implies x \in C$
+            \end{enumerate}
+            Proof $A \subseteq B \land B \subseteq A \implies A = B$
+            \begin{enumerate}
+                \item $A \subseteq B \equiv \forall x \in A : x \in B$
+                \item $B \subseteq A \equiv \forall x \in B : x \in A$
+                \item $\forall x \in A: x \in B \land \forall x \in B: x \in A
+                    \equiv A = B$, so these starting propositions combined are
+                    the definition of equality established earlier in the
+                    chapter.
+            \end{enumerate}
+            Proof $A \subset B \land B \subset C \implies A \subset C$:
+            \begin{enumerate}
+                \item $A \subset C \equiv \forall x \in A: x \in C \land A \neq C$, so we must prove
+                    two things: $A \neq C$, and $\forall x \in A: x \in C$
+                \item $A \subset B \equiv \forall x \in A: x \in B \land A \neq B$
+                \item $A \neq B \implies \exists x \in A: x \notin B \lor \exists x \in B: x \notin A$
+                \item Since by the definition of a subset $\neg\exists x \in A:
+                    x \notin B$, this and the relation $A \neq B$ implies
+                    $\exists x \in B: x \notin A$
+                \item $B \subset C \equiv \forall x \in B: x \in C \land B \neq C$
+                \item Since $\forall x \in B: x \in C$ and $\exists x \in B: x
+                    \notin A$, $\exists x \in C: x \notin A$, and $C \neq A$.
+                \item But also, $\forall x \in A: x \in B \land \forall x \in B: x \in C$. This
+                    means $x \in A \implies x \in B \implies x \in C$, and we see $\forall x \in A: x \in C$.
+                \item These two statements ($A \neq C$, and $\forall x \in A: x \in C$) are equivalent
+                    to saying ($A \subset C$), and so we have finished our proof.
+            \end{enumerate}
+        \item Proof $A \subseteq B \implies A \cup B = B \land A \cap B = B$:
+            \begin{enumerate}
+                \item $A \subseteq B \equiv \forall x \in A: x \in B$
+                \item $A \cup B \equiv \{x \in A \lor x \in B\}$
+                \item $\forall x \in A: x \in B$, so $\forall x \in A : x \in
+                    {x \in A \lor x \in B}$ and $\forall x \notin A : x \notin
+                    {x \in A \lor x \in B}$, proving that if $A \subseteq B
+                    \implies A \cup B = B$
+                \item $A \cap B \equiv \{x \in A \land x \in B\}$
+                \item $A \subseteq B \equiv \forall x \in A: x \in B$, so if $A \subseteq B$, then
+                    $\{x \in A \land x \in B\} = \{x \in B\}$
+                \item $B \equiv \{x \in B\}$, so $A \subseteq B \implies A \cap
+                    B = B \land A \cup B = B$, and we have finished our proof.
+            \end{enumerate}
+            Proof $A \cup B = B \implies A \subseteq B \land A \cap B = B$:
+            \begin{enumerate}
+                \item $A \subseteq B \implies A \cap B = B$, as per earlier
+                    proofs, so we need only prove $A \cup B = B \implies A
+                    \subseteq B$
+                \item $A \subseteq B \equiv \forall x \in A: x \in B$
+                \item $B = A \cup B \equiv \forall x \in B: x \in A \cup B
+                    \land \forall x \in A \cup B : x \in B$
+                \item $A \cup B \equiv \{x \in A \lor x \in B\}$, so
+                \item $\forall x \in A \lor x \in B : x \in B$ and
+                \item $\neg\exists x \in A : x \notin B$, the contrapositive of which is
+                \item $\forall x \in A : x \in B$, and so we have proved our hypothesis.
+            \end{enumerate}
+            Proof $A \cap B = A \implies A \subseteq B \land A \cup B = B$:
+            \begin{enumerate}
+                \item $A \subseteq B \implies A \cup B = B$, as per earlier
+                    proofs, so we need only prove $A \cap B = A \implies A
+                    \subseteq B$
+                \item $A \subseteq B \equiv \forall x \in A: x \in B$
+                \item $A \cap B = A \equiv \{x \in A\} = \{x \in A \land x \in B\}$
+                \item Thus, $A \cap B = A \implies \forall x \in A: x \in B$, or
+                    $A \cap B = B \implies A \subseteq B$, so we have already proved our
+                    hypothesis.
+            \end{enumerate}
+        \item Let A, B, C be sets, and let X be a set containing A, B, C as subsets. \\
+            Proof $A \cup X = X \cap A = X$: See 3.1.5 \\
+            Proof $A \cup A = A$:
+            \begin{enumerate}
+                \item Suppose for sake of contradiction suppose $A \cup A \neq A$.
+                \item This would mean either A contains an item not contain in $A \cup A$, or
+                    $A \cup A$ contains an item not contained in X.
+                \item Suppose $\exists x \in A \cup A : x \notin A$
+                \item $x \in A \cup A \equiv x \in A \lor x \in A$, which when
+                    simplified means $x \in A$.
+                \item We have now already contradicted ourselves, by declaring
+                    $x \in A \land x \notin A$.
+                \item Suppose then that $\exists x : x \in A \land x \notin A \cup A$
+                \item We can just as easily see that $x \notin A \cup A \equiv
+                    x \notin A \land x \notin A$, equivalent to saying $x
+                    \notin A$.
+                \item $x \notin A$ contradicts our earlier assumption that $x \in A$, and our
+                    premises must be incorrect, and $\neg\exists x : x \in A \land x \notin A \cup A$.
+                \item Thus, $A \cup A$ has the same elements as $A$ and is
+                    equivalent by our definition.
+            \end{enumerate}
+            Proof $A \cap A = A$
+            \begin{enumerate}
+                \item Suppose for sake of contradiction suppose $A \cap A \neq A$.
+                \item This would mean either A contains an item not contain in
+                    $A \cap A$, or $A \cap A$ contains an item not contained in
+                    X.
+                \item Suppose $\exists x : x \in A \cap A \land x \notin A$
+                \item This means that $x \in A \land x \in A$, simplified $x
+                    \in A$.
+                \item We have now already contradicted ourselves, by declaring
+                    $x \in A \land x \notin A$.
+                \item Suppose then that $\exists x : x \in A \land x \notin A \cap A$
+                \item We can just as easily see that $x \notin A \cap A \equiv
+                    x \notin A \lor x \notin A$, equivalent to saying $x \notin
+                    A$.
+                \item $x \notin A$ contradicts our earlier assumption that $x \in A$, and our
+                    premises must be incorrect, and $\neg\exists x : x \in A \land x \notin A \cap A$.
+                \item Thus, $A \cap A$ has the same elements as $A$ and is
+                    equivalent by our definition.
+            \end{enumerate}
+            Proof of Distributivity ($A \cap (B \cup C) = (A \cup B) \cup C$)
+            \begin{enumerate}
+                \item 
+            \end{enumerate}
+        \item Proof $A \cap B \subseteq A \land A \cap B \subseteq B$
+            \begin{enumerate}
+                \item $A \cap B = B \cap A$ because of commutativity, so we
+                    need only prove $A \cap B \subseteq A$.
+                \item $(A \cap B) \equiv \{x \in A \land x \in B\}$
+                \item Since $x \in {x \in A \land x \in B} \implies x \in A$,
+                    $\forall x \in (A \cap B) : x \in A$, which is the definition
+                    of $(A \cap B) \subseteq A$.
+            \end{enumerate}
+            Proof $C \subseteq A \land C \subseteq B \iff C \subseteq A \cap B$
+            \begin{enumerate}
+                \item This is a bidirectional equality, so we have to prove both that
+                    $C \subseteq A \cap B \implies C \subseteq A \land C \subseteq B$ and
+                    that $C \subseteq A \land C \subseteq B \implies C \subseteq A \land B$
+                \item $C \subseteq A \cap B \equiv \forall x \in C: x \in A \land x \in B$
+                \item $\forall x \in C: x \in A \land x \in B \implies \forall x \in C: x \in A$, so
+                    $C \subseteq A$. Similarly, $\forall x \in C: x \in A \land x \in B \implies \forall x \in C: x \in B$, so
+                    $C \subseteq B$. Thus, $C \subseteq A \cap B \implies C \subseteq A \land C \subseteq B$
+                \item $C \subseteq A \land C \subseteq B \equiv \forall x \in C: x \in A \land \forall x \in C: x \in B$
+                \item $\forall x \in C: x \in A \land \forall x \in C: x \in B
+                    = \forall x \in C: x \in A \land x \in B$, so we also have
+                    $\forall x \in C: x \in A \land x \in B$.
+                \item $A \cap B$ is the set of elements $\forall x: x \in A
+                    \cap B$, so $\forall x \in C: x \in A \cap B$ or $C
+                    \subseteq A \cap B$, so $C \subseteq A \land C \subseteq B
+                    \implies C \subseteq A \cap B$. This concludes our proof
+                    that $C \subseteq A \cap B \iff C \subseteq A \land C
+                    \subseteq B$.
+            \end{enumerate}
+        \item Proof $A \cap (A \cup B) = A$:
+            \begin{enumerate}
+                \item $\forall x \in A: x \in A \cup B$, because $A \cup B \equiv \{x \in A \lor x \in B\}$
+                \item $A \cap (A \cup B) \equiv \{x \in A \land x \in (A \cup B)\}$
+                \item As a result, $\forall x \in A: x \in A \cap (A \cup B)$
+                \item Also we see $\neg\exists x \in A \cap (A \cup B) : x
+                    \notin A$, because $x \in A \cap (A \cup B) \equiv x \in A
+                    \land x \in (A \cup B) \equiv x \in A \land (x \in A \lor x
+                    \in B)$. This proves $A \cap (A \cup B) = A$ and our
+                    hypothesis is correct.
+            \end{enumerate}
+            Proof $A \cup (A \cap B) = A$:
+            \begin{enumerate}
+                \item Using the properties of commutativity and associativity we can rearrange the equation like the following:
+                \item $A \cup (A \cap B) = (A \cap B) \cup A$
+                \item $(A \cap B) \cup A = A \cap (B \cup A)$
+                \item $A \cap (B \cup A) = A \cap (A \cup B)$, which was proven in an earlier exercise.
+            \end{enumerate}
+        \item Let $A, B, X$ be sets such that $A \cup B = X \land A \cap B = \emptyset$. \\
+            Proof $A = X \setminus B$:
+            \begin{enumerate}
+                \item $A \cap B = \emptyset \equiv \forall x \in A \land x \in B: x \in \emptyset$
+                \item $\neg\exists x : x \in \emptyset$, so $\forall x \in A: x \notin B$
+                \item $X \equiv \{x : x \in A \lor x \in B\}$, and $X \setminus B \equiv \{x : x \in X \land x \notin B\}$, so
+                    $X \setminus B \equiv (A \cup B) \setminus B \equiv \{x : (x \in A \lor x \in B) \land x \notin B\}$
+                \item Since $\forall x \in X \setminus A: x \in (A \cup B) \land x
+                    \notin B$, $X \setminus B = \{x : (x \in A \lor x \in B) \land x \in
+                    B\} = \{x: (x \in A \land x \notin B) \lor x (\in B \land x
+                    \notin B)\} = \{x: x \in A \land x \notin B\}$
+                \item Again, $\forall x \in A: x \notin B$, so $A = {x: x \in A \land x \notin B} = X \setminus B$,
+                    and we have proven our hypothesis
+            \end{enumerate}
+            Proof $B = X \setminus A$
+            \begin{enumerate}
+                \item The $\cup$ and $\cap$ operators have the property of associativity so we need merely rearrange our
+                    starting assumptions to get: \\
+                    $A \cup B = B \cup A = X$ and \\
+                    $A \cap B = B \cap A = \emptyset$, and invoke our proof from the previous exercise.
+            \end{enumerate}
+        \item Proof $A \setminus B, B \setminus A$, and $A \cap B$ are disjoint, and that their union is $A \cup B$:
+            \begin{enumerate}
+                \item First we prove $A \setminus B$ is disjoint from $B
+                    \setminus A$ and $A \cap B$, and then that $A \cap B$ is
+                    disjoint from $B \setminus A$
+                \item $A \setminus B \equiv \{x : x \in A \land x \notin B\}$
+                \item $\forall x \in B \setminus A: x \notin A$, so $\forall x
+                    \in B \setminus A: x \notin A \setminus B$
+                \item Similarly, $\forall x \in A \setminus B: x \notin B$, so
+                    $\forall x \in A \setminus B: x \notin B \setminus A$, and
+                    we can say that $A \setminus B$ and $B \setminus A$ are
+                    disjoint.
+                \item By definition, $\forall x \in A \cap B: x \in A \land x \in B$
+                \item This means that $\forall x \in A \cap B: x \notin B \setminus A$, because
+                    $\forall x \in B \setminus A: x \notin A$.
+            \end{enumerate}
+            Proof $(A \setminus B) \cup (B \setminus A) \cup (A \cap B) = A \cup B$
+            \begin{enumerate}
+                \item $(A \setminus B) \cup (B \setminus A) \cup (A \cap B)
+                    \equiv \{x : x \in A \land x \notin B\} \cup \{x : x \in B
+                    \land x \notin A\} \cup \{x : x \in A \land x \in B\}$
+                \item $\{x : x \in A \land x \notin B\} \cup \{x : x \in B
+                    \land x \notin A\} = \{x : (x \in A \land x \notin B) \lor
+                    (x \in B \land x \notin A) \} = \{x : (x \in A \lor x \in B)
+                    \land \neg(x \in A \land x \in B)\}$, thus:
+                \item $\{x : x \in A \land x \notin B\} \cup \{x : x \in B
+                    \land x \notin A\} \cup \{x : x \in A \land x \in B\} = \{x : (x \in A \lor x \in B)
+                    \land \neg(x \in A \land x \in B)\} \cup \{x : x \in A \land x \in B\}$, and:
+                \item $\{x : (x \in A \lor x \in B) \land \neg(x \in A \land x
+                    \in B)\} \cup \{x : x \in A \land x \in B\} = \{x : x \in A
+                    \lor x \in B\} = A \cup B$, finally proving also that $(A \setminus B) \cup (B \setminus A) \cup (A \cap B) = A \cup B$
+            \end{enumerate}
+        \item Proof axiom of replacement implis axiom of specification:
+            \begin{enumerate}
+                
+            \end{enumerate}
+    \end{enumerate}
+\end{document}
