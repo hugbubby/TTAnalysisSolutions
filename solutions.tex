@@ -339,5 +339,126 @@
     \end{enumerate}
     \subsection{Russell's Paradox}
     \begin{enumerate}
+        \item Proof Axiom of Universal Specification implies axiom 3.2
+            \begin{enumerate}
+                \item There exists a set of elements $\{x : P(x)\}$, for any $P(x)$ valid for all possible objects (Axiom of Universal specification)
+                \item Consider the property function $P(x) = False$
+                \item This implies the existence of a set $\{x : False\}$, or a set with no elements. (Axiom 3.2)
+            \end{enumerate}
+            Proof Axiom of Universal Specification implies axiom 3.3
+            \begin{enumerate}
+                \item There exists a set of elements $\{x : P(x)\}$, for any $P(x)$ valid for all possible objects (Axiom of Universal specification)
+                \item Consider the property function $P(x) = (x = y)$ where y is an arbitrary, unique object, either a number or a set itself.
+                \item This implies the existence of a set $\{x : P(X) \}$, or $\{x : x = y\}$, the set of that one element. (Axiom 3.3 part 1)
+                \item Also consider the property function $P(x) = (x = y \lor x = z)$, where again y and z are arbitrary unique objects.
+                \item This implies the existence of a set $\{x : x = y \lor x = z\}$, consisting of the elements y and z, which themselves could be numbers or sets.
+            \end{enumerate}
+            Proof Axiom of Universal Specification implies axiom 3.4
+            \begin{enumerate}
+                \item There exists a set of elements $\{x : P(x)\}$, for any $P(x)$ valid for all possible objects (Axiom of Universal specification)
+                \item Consider the existence of two arbitrary sets, A and B.
+                \item Now consider the property function $P(x) = (x \in A \lor x \in B)$.
+                \item This implies the existence of a set $\{x : x \in A \lor x \in B\}$, the definition of the pairwise union function in Axiom 3.4
+            \end{enumerate}
+            Proof Axiom of Universal Specification implies axiom 3.5
+            \begin{enumerate}
+                \item There exists a set of elements $\{x : P(x)\}$, for any $P(x)$ valid for all possible objects (Axiom of Universal specification)
+                \item Consider the existence of an arbitrary set A.
+                \item Now consider the property function $P(x) = (x \in A \land P_2(x))$, where $P_2(x)$ is some other arbitrary function.
+                \item The set $\{x : x \in A \land P_2(x)\} \equiv \{x \in A:
+                    P_2(x)\}$, and so we can clearly see the Axiom of
+                    Specification is a special case of the Axiom of Universal
+                    Specification, tied down by the restriction that its
+                    property function must be applied to an existing set and
+                    not all possible objects.
+            \end{enumerate}
+            Proof Axiom of Universal Specification implies axiom 3.6
+            \begin{enumerate}
+                \item There exists a set of elements $\{x : P(x)\}$, for any $P(x)$ valid for all possible objects (Axiom of Universal specification)
+                \item Consider the existence of an arbitrary set A.
+                \item Now consider the property function $P(y) = (\exists x \in A: P(x,y))$, where $P(x,y)$ is a an arbitrary statement pertaining to x and y, such that
+                    for each $x \in A$ there is at most one $y$ where $P(x,y)$ is true
+                \item This implies the exxistence of the set $\{y: \exists x \in A: P(x,y)\}$, which is the claim of the axiom of Replacement.
+            \end{enumerate}
+        \item Proof $A \notin A$
+            \begin{enumerate}
+                \item Suppose we have a set A.
+                \item From the singleton axiom, we can see that there exists the set $\{A\}$ of which A is an element.
+                \item From the Axiom of Regularity, we see that $\{A\}$ must contain an element that is either not a set, or is disjoint from $\{A\}$.
+                \item Since $\{A\}$ contains only one element --- A --- which
+                    is a set --- we also find that A must not contain itself,
+                    because it is disjoint from $\{A\}$, and would otherwise
+                    violate the Axiom of Regularity.
+            \end{enumerate}
+            Proof given arbitrary sets $A,B: \neg(A \in B \land B \in A)$
+            \begin{enumerate}
+                \item Consider arbitrary sets A and B.
+                \item Sets do not contain themselves, as established earlier.
+                \item Consider now the set $\{A, B\}$.
+                \item Due to the Axiom of Regularity, $\{A, B\}$ must contain an element that does not itself contain either A or B.
+                \item Neither set contains itself, so A can contain B, or B can contain A, but both sets cannot contain each other at
+                    the same time, becuase this would mean $\{A, B\}$ has no elements which do not contain other elements or are not sets.
+                    So, $\neg(A \in B \land B \in A)$
+            \end{enumerate}
+        \item Proof Axiom of Universal Specification implies the existence of the set of all objects.
+            \begin{enumerate}
+                \item There exists a set of elements $\{x : P(x)\}$, for any proposition $P(x)$ valid for all possible objects (Axiom of Universal specification)
+                \item Consider some $P(x) = True$. By Axiom of Comprehension,
+                    this shows there is a set such that $\{x : True\}$, or,
+                    simplified, the set of all possible objects, because $P(x)$
+                    returns true no matter what x is.
+            \end{enumerate}
+            Proof set of all objects implies Axiom of Universal Specification.
+            \begin{enumerate}
+                \item Suppose there exists a set of all objects O.
+                \item By the Axiom of (Non-Universal) Specification, we know
+                    that, given a proposition $P(x)$ vaid for all objects in A,
+                    and a set of objects A, there exists some set that contains
+                    all the objects in A that satisfy $P(x)$.
+                \item This means that we can use the set of all objects along
+                    with the Axiom of Specification to declare that there
+                    exists a set of elements $\{x \in O: P(x)\}$, which is what
+                    is declared by the Axiom of Universal Speification.
+            \end{enumerate}
+    \end{enumerate}
+    \subsection{Functions}
+    \begin{enumerate}
+        \item Proof the definition of equality in 3.3.7 is reflexive.
+            \begin{enumerate}
+                \item
+                \item Any function $f(x)$ has the same domain and range $X$ and $Y$ of itself.
+                \item Any function $f(x)$ has the same output for all $x \in X$, or else we don't consider it a function.
+                \item By the definition of equality in the book, this means $f(x) = f(x)$ and so equality between functions is reflexive.
+            \end{enumerate}
+            Proof equality between functions is symmetric.
+            \begin{enumerate}
+                \item Suppose we have two functions $f(x)$ and $g(x)$ and $f(x)=g(x)$.
+                \item Two functions $f(x)$ and $g(x)$ are equal if and only if
+                    they have the same domain, range, and $f(x) = g(x)$ for all
+                    x in the domain of these functions. So, the domain of $f(x)$ is
+                    the same as the domain of $g(x)$, the range of $f(x)$ is the same
+                    as the range of $g(x)$, and $\forall x \in $ the domain of $f(x) : f(x)=g(x)$.
+                \item $g(x)$ and $f(x)$ have the same domain and range, because of the 
+                    symmetric property of set equality.
+                \item $\forall x \in $ the domain of $g(x): g(x) = f(x)$, because of teh symmetric
+                    property of elemental equality. So, by our definition earlier, $f(x) = g(x) \implies g(x) = f(x)$.
+            \end{enumerate}
+            Proof equality between functions is transitive.
+            \begin{enumerate}
+                \item Two functions $f(x)$ and $g(x)$ are equal if and only if
+                    they have the same domain, range, and $f(x) = g(x)$ for all
+                    x in the domain of these functions.
+                \item Consider three hypothetical functions $f(x)$, $g(x)$ and $h(x)$, where $f(x)=g(x) \land g(x)=h(x)$
+                \item $f(x)$ has the same domain as $g(x)$, which is the same domain as $h(x)$. By the substitution property of sets,
+                    the domain of $h(x)$ must be equal to the domain of $f(x)$.
+                \item Similarly, $f(x)$ has the same range as $g(x)$, which is the same range as $h(x)$. By the substitution property of sets,
+                    the range of $h(x)$ must be equal to the range of $f(x)$.
+                \item If all three functions have the same domain (hereafter referred to as X), and $\forall x \in X: f(x) = g(x) \land g(x) = h(x)$,
+                    then by the substitution property of numbers, $\forall x \in X: f(x) = h(x)$, and we have proven that $f(x) = h(x)$.
+            \end{enumerate}
+            Proof $(f = g \land h = j) \implies f \circ g = h \circ j$
+            \begin{enumerate}
+                \item Test
+            \end{enumerate}
     \end{enumerate}
 \end{document}
