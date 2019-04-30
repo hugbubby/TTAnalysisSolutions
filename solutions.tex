@@ -17,7 +17,7 @@
                     \in B) \land (\forall x \in B: x \in A)$
                 \item A set is defined as a collection of objects.
                 \item It is a contradiction for any object $x$ to satisfy $x
-                    \in A$ be true but also $x \notin A$, so equality of sets
+                    \in A$, but also $x \notin A$, so equality of sets
                     is reflexive ($A = A$), meaning all objects that satisfy
                     the claim $x \in A$ also satisfy $x \in A$, and
                     ``vice-versa''
@@ -27,10 +27,10 @@
                 \item To say that sets A and B are equal, as per our definition
                     of equality, is to say $\forall x \in A: x \in B \land
                     \forall x \in B: x \in A$.
-                \item So, if $A = B$, and by definition $\forall x \in A: x \in
-                    B \land \forall x \in B: x \in A$, then we can just swap
-                    the given claims around as show that $\forall x \in B: x
-                    \in A \land \forall x \in A: x \in B$, and see that B = A.
+                \item So, if $A = B$, and by definition $(\forall x \in A: x \in
+                    B) \land (\forall x \in B: x \in A)$, then we can just reorder
+                    the given claims around the (commutative) ``and'',show that $(\forall x \in B: x
+                    \in A) \land (\forall x \in A: x \in B)$, and see that B = A.
             \end{enumerate}
             Transitivity:
             \begin{enumerate}
@@ -56,7 +56,7 @@
                     either $A_1$ or $\emptyset$ because neither of them contain $A_1$, and instead contain
                     $\emptyset$ and no objects, respectively.
                 \item Lastly we think of a set $A_3 : \emptyset \in A_3 \land
-                    A_2 \in A_3$, and see that this does not contain the sam
+                    A_2 \in A_3$, and see that this does not contain the same
                     objects as $\emptyset$, $A_1$, or $A_3$. $\emptyset \notin
                     A_2$, $A_1 \notin A_1$, and neither $\emptyset$ nor $A_1$
                     are in $\emptyset$ so at this point we have proven 3.2.
@@ -64,7 +64,7 @@
         \item Proof $\{a,b\} = \{a\} \cup \{b\}$:
             \begin{enumerate}
                 \item The union between sets A and B as defined in
-                    Axiom 3.4 is set whose elements are contained by A
+                    Axiom 3.4 is the set whose elements are contained by A
                     or B or both.
                 \item $\{a\} \cup \{b\}$ contains $a$, because $a \in \{a\}$
                 \item $\{a\} \cup \{b\}$ contains $b$, because $b \in \{b\}$
@@ -76,20 +76,28 @@
             \end{enumerate}
             Proof of commutativity:
             \begin{enumerate}
-                \item Suppose $\exists x \in A \cup B$. That means by Axiom 3.4 
-                    $x \in A \lor x \in B$. If $x \in A$, then $x \in B \cup
-                    A$, because $B \cup A$ is the set of all elements either in
-                    $B$ or $A$.  If $x \in B$, then by the same logic $x \in B
-                    \cup A$ as well, and so we can say $\forall x \in A \cup B:
-                    x \in B \cup A$, and we have proven their equality.
+                \item Suppose $\exists x \in A \cup B$. 
+                \item That means by Axiom 3.4 $x \in A \lor x \in B$. 
+                \item If $x \in A$, then $x \in B \cup A$, because $B \cup A$
+                    is the set of all elements either in $B$ or $A$.  
+                \item If $x \in B$, then by the same logic $x \in B \cup A$ as
+                    well, and so we can say $\forall x \in A \cup B: x \in B
+                    \cup A$, and we have proven their equality by the
+                    definition of set equality given earlier.
             \end{enumerate}
             Proof $A \cup A = A$
             \begin{enumerate}
                 \item For the sake of contradiction assume $A \neq A \cup A$
-                \item This implies $\exists x : x \in A \land x \notin A \cup A$.
-                \item But $x \notin A \cup A \rightarrow x \notin A \land x \notin A$. 
-                \item Both of these (equivalent) implied statements contradict the earlier
-                    one, that $\exists x : x \in A \land x \notin A \cup A$.
+                \item This means $(\exists x \in A: x \notin A \cup A) \lor
+                    (\exists x \in A \cup A: x \notin A)$.
+                \item Suppose for sake of contradiction $\exists x \in A: x \in A \cup A$.
+                \item But $x \notin A \cup A \rightarrow (x \notin A \land x
+                    \notin A)$, a contradiction. So, $\neg\exists x \in A: x \notin A \cup A$. 
+                \item This means that, given our starting assumption, $\exists x \in A \cup A: x \notin A$.
+                \item But $x \in A \cup A \implies (x \in A \lor x \in A)$,
+                    which is equivalent to saying $x \in A \cup A \implies (x
+                    \in A)$, a contradiction. So we know that $A$ must equal $A
+                    \cup A$
             \end{enumerate}
             Proof $A \cup \emptyset = A$ and $\emptyset \cup A = A$
             \begin{enumerate}
@@ -99,17 +107,19 @@
                     A$. Now we must prove $\neg\exists x \in A : x \notin A \cup \emptyset$.
                 \item Suppose for sake of contradiction $\exists x \in A : x \notin A \cup \emptyset$.
                 \item This would mean $x \notin A \land x \notin \emptyset$, by Axiom 3.4.
-                \item $x$ is obviously not in the empty set, but by our assumption $x \in A$,
-                    meaning we have contradicted ourselves.
-                \item The sum of the two statements we have just proved is equivalent to saying $A = A \cup \emptyset$.
-                    Because of commutitivity this also means $A = \emptyset \cup A$.
+                \item $x$ is obviously not in the empty set, but we assumed $x \in A$,
+                    and thus we have to have contradicted ourselves.
+                \item Since $(\forall x \in A \cup \emptyset: x \in A) \land
+                    (\forall x \in A: x \in A \cup \emptyset)$, $A = A \cup
+                    \emptyset$.
+                \item Because of commutitivity this also means $A = \emptyset \cup A$.
             \end{enumerate}
         \item Proof $A \subseteq B \land B \subseteq C \implies A \subseteq C$:
             \begin{enumerate}
                 \item $A \subseteq B \equiv \forall x \in A : x \in B$
                 \item $B \subseteq C \equiv \forall x \in B : x \in C$
-                \item Thus, $x \in A \implies x \in B$, and $x \in B \implies x \in C$,
-                    so $x \in A \implies x \in B \implies x \in C$ or $x \in A \implies x \in C$
+                \item Since $(\forall x \in A: x \in B) \land (x \in B \implies x \in
+                    C)$, $\forall x \in A: x \in C$
             \end{enumerate}
             Proof $A \subseteq B \land B \subseteq A \implies A = B$
             \begin{enumerate}
@@ -566,7 +576,10 @@
                             Z}({\iota}_{X \rightarrow Y}(x)) =  ({\iota}_{Y
                             \rightarrow Z} \circ {\iota}_{X \rightarrow Y})(x) =
                             {\iota}_{X \rightarrow Z}(x) = x$ (Last two statements)
-                        \item The domain and range of of ${\iota}_{X \rightarrow Z}$ are equal to the domain and range of ${\iota}_{X \rightarrow Y} \circ {\iota}_{Y \rightarrow Z}$. (Definition of both functions)
+                        \item The domain and range of of ${\iota}_{X
+                            \rightarrow Z}$ are equal to the domain and range
+                            of ${\iota}_{X \rightarrow Y} \circ {\iota}_{Y
+                            \rightarrow Z}$. (Definition of both functions)
                         \item As a consequence of the last two statements, by
                             definition of functional equality, ${\iota}_{Y
                             \rightarrow Z} \circ {\iota}_{X \rightarrow Y} =
@@ -587,10 +600,54 @@
                     \end{enumerate}
                 \item Show that if $f : A \rightarrow B$ is a bijective
                     function, then $f \circ f^{-1} = {\iota}_{B \rightarrow
-                    B}(x) = x$ and $f^{-1} \circ f = {\iota}_{A \rightarrow A}$
+                    B}$ and $f^{-1} \circ f = {\iota}_{A \rightarrow A}$
                     \begin{enumerate}
-                        \item 
+                        \item $f \circ f^{-1} : B \rightarrow B$ (Definition)
+                        \item $\forall y \in B: (f \circ f^{-1})(y) = y$ (Established in earlier proof about the inverse of bijective functions)
+                        \item ${\iota}_{B \rightarrow B} : B \rightarrow B$ (Definition)
+                        \item $\forall y \in B: {\iota}_{B \rightarrow B}(y) = y$ (Definition)
+                        \item $f \circ f^{-1} = {\iota}_{B \rightarrow B}$ (Definition of functional equality)
+                        \item $f^{-1} \circ f : A \rightarrow A$ (Definition)
+                        \item $\forall x \in A: (f \circ f^{-1})(x) = x$ (Established in earlier proof about the inverse of bijective functions)
+                        \item ${\iota}_{A \rightarrow A} : A \rightarrow A$ (Definition)
+                        \item $\forall x \in A: {\iota}_{A \rightarrow A}(x) = x$ (Definition)
+                        \item $f^{-1} \circ f = {\iota}_{A \rightarrow A}$ (Definition of functional equality)
+                    \end{enumerate}
+                \item Show that if $X$ and $Y$ are disjoint sets, and $f : X
+                    \rightarrow Z$ and $g : Y \rightarrow Z$ are two functions,
+                    then there is a unique function $h : X \cup Y \rightarrow
+                    Z$ such that $h \circ {\iota}_{X \rightarrow X \cup Y} = f$
+                    and $h \circ {\iota}_{Y \rightarrow X \cup Y} = g$ \\
+                    Note: Unsure about what ``unique'' means in this context.
+                    \begin{enumerate}
+                        \item $\forall x \in X: {\iota}_{X \rightarrow X \cup Y}(x) = x$ (Definition)
+                        \item Consider some $h: X \cup Y \rightarrow Z$
+                        \item $\forall x \in X: (h \circ {\iota}_{X \rightarrow X \cup Y})(x) = h(x)$ (Substitution)
+                        \item $\forall y \in Y: {\iota}_{Y \rightarrow X \cup Y}(y) = y$ (Definition)
+                        \item $\forall y \in Y: (h \circ {\iota}_{Y \rightarrow X \cup Y})(y) = h(y)$ (Substitution)
+                        \item $(x \notin X \land x \notin Y) \implies (x \notin X \cup Y)$ (Proven earlier)
+                        \item $\forall x \in X \cup Y: x \in X \oplus x \in Y$ (Given as $X$ is disjoint from $Y$)
+                        \item $\forall x \in X \cup Y: (x \in X \implies h(x) = (h \circ {\iota}_{X \rightarrow X \cup Y})(x)) \land (x \in Y \implies h(x) = (h \circ {\iota}_{Y \rightarrow X \cup Y})(x))$
+                        \item And taking this further we can say: $\forall
+                            x \in X \cup Y: h(x) = (h \circ {\iota}_{X
+                            \rightarrow X \cup Y})(x) \lor h(x) = (h \circ
+                            {\iota}_{Y \rightarrow X \cup Y})(x)$
+                        \item So if $h \circ {\iota}_{X \rightarrow X \cup Y} =
+                            f$, and $h \circ {\iota}_{Y \rightarrow X \cup Y} =
+                            g$ then we have defined a unique function $h: X
+                            \cup Y \rightarrow Z$ 
                     \end{enumerate}
             \end{enumerate}
+    \end{enumerate}
+    \subsection{Images and Inverse Images}
+    \begin{enumerate}
+        \item Let $f: X \rightarrow Y$ be a bijective function, and let
+            $f^{-1}: Y \rightarrow X$ be its inverse.  Let V be a subset of Y.
+            Prove that the forward image of V under $f^{-1}$ is the same set as
+            the inverse image of $V$ under $f$.
+            \begin{enumerate}
+                \item 
+            \end{enumerate}
+            
     \end{enumerate}
 \end{document}
