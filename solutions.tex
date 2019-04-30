@@ -456,9 +456,141 @@
                 \item If all three functions have the same domain (hereafter referred to as X), and $\forall x \in X: f(x) = g(x) \land g(x) = h(x)$,
                     then by the substitution property of numbers, $\forall x \in X: f(x) = h(x)$, and we have proven that $f(x) = h(x)$.
             \end{enumerate}
-            Proof $(f = g \land h = j) \implies f \circ g = h \circ j$
+            Proof $(f = g \land h = j) \implies f \circ g = h \circ j$ \\
+            TBD
+        \item Proof for two functions $f$ and $g$, where the domain of g is
+            equal to the range of f, if f and g are injective, then $g \circ f$
+            is injective.
             \begin{enumerate}
-                \item Test
+                \item Consider the domain of f X and range of f Y, where the domain of g is the same as the range of f.
+                \item $\forall x \in X: (x \neq x') \implies (f(x) \neq f(x'))$ (Given)
+                \item $\forall y \in Y: (y \neq y') \implies (g(y) \neq g(y'))$ (Given)
+                \item Consider two unequal $x,x' \in X$. $f(x) \neq f(x')$, as given by the earlier statement.
+                \item Since $f(x) \neq f(x')$, and $f(x) \in Y \land f(x') \in
+                    Y$, $g(f(x)) \neq g(f(x'))$, as a result of the earlier
+                    implication. This is the definition of injectivity, and so the
+                    composition $g \circ f$ must be injective.
+            \end{enumerate}
+            Proof for two functions $f$ and $g$, where the domain of g is
+            equal to the range of f, if f and g are surjective, then $g \circ f$
+            is surjective.
+            \begin{enumerate}
+                \item Let's call the domain of f X and range of f Y, where the domain of g is the same as the range of f, and the range of g Z.
+                \item $\forall y \in Y: (\exists x \in X: f(x) = y)$ (Given)
+                \item $\forall z \in Z: (\exists y \in Y: g(y) = z)$ (Given)
+                \item The domain of $g$ is the same as the range of $f$, so there is some value $f(x)$ equal for any value $y \in Y$.
+                \item So we can say that $\forall z \in Z: \exists y \in Y: \exists x \in X: z = g(y) = g(f(x))$
+                \item This means that for the composition function, $\forall z \in Z: \exists x \in X: z = g(f(x))$, and we have proven the
+                    surjectivity of $g \circ f$.
+            \end{enumerate}
+        \item Not sure the function with an empty set domain makes a whole lot of sense, given previous definitions. Contacted Tao about it. Maybe I'm rarted.
+        \item Let $f_1: X \rightarrow Y, f_2: X \rightarrow Y, g_1 Y \rightarrow Z, g_2 \rightarrow Z$. \\
+            Show that if $g_1 \circ f_1 = g_1 \circ f_2$ and $g_1$ is injective, that $f_1 = f_2$.
+            \begin{enumerate}
+                \item $\forall y,y' \in Y: y \neq y' \implies g_1(y) \neq g_1(y')$ (Given)
+                \item $\forall y,y' \in Y: g_1(y) = g_2(y') \implies y = y'$ (Contrapositive of above)
+                \item $\forall x \in X: g_1(f_1(x)) = g_1(f_2(x))$ (Given)
+                \item Thus, $\forall x \in X: f_1(x) = f_2(x)$ (Consequence of previous two statements)
+            \end{enumerate}
+            Is the same statement true if $g_1$ is not injective? \\
+            Not necessarily. Consider the static function $g_1(y) = 7$.
+            Since $\forall y \in Y: g_1(y) = 7$, even if $f_1(x) = 6$ and
+            $f_2(x) = 23$, $g(f_1(x)) = g(f_2(x))$. So, the same statement
+            is not guaranteed to be correct.
+            Show that if $g_1 \circ f_1 = g_2 \circ f_1$ and $f_1$ is surjective, that $g_1 = g_2$.
+            \begin{enumerate}
+                \item $\forall y \in Y: \exists x \in X: f_1(x) = y$ (Given)
+                \item Phrased in a different way, the set of all possible outcomes for $f_1(x)$ is the set $Y$.
+                \item $\forall x \in X: g_1(f_1(x)) = g_2(f_1(x))$ (Given)
+                \item Thus, since there is some $f_1(x)$ for each value in $Y$,
+                    $\forall y \in Y: g_1(y) = g_2(y)$, and since $g_1$ and
+                    $g_2$ have the same domain and range, $g_1=g_2$.
+            \end{enumerate}
+            Is the same statement true if $f_1$ is not surjective? \\ 
+            Not necessarily.  Consider the static function $f_1(x) = 2$, and
+            the functions $g_1(y) = 2y$ and $g_2(y) = y^2$, each with the
+            domain and range of all natural numbers. $g_1(f_1(x)) = g_2(f_1(x))
+            = 4$, but since $f_1(x)$ only outputs one number on the range of
+            the $g$ functions, this does not mean $g_1 = g_2$, and in this case
+            they are not equal.
+        \item TBD
+        \item Let $f: X \rightarrow Y$ be a bijective function, and let
+            $f^{-1}: Y \rightarrow X$ be its inverse. \\
+            Proof $f^{-1}(f(x)) = x \land f(f^{-1}(y)) = y$ for all $x \in X$
+            \begin{enumerate}
+                \item $\forall x \in X: (f(x) = y) \implies (f^{-1}(y) = x)$ (Definition of inverse function)
+                \item $\forall x \in X: (f^{-1}(f(x)) = x)$ (Substitution)
+                \item $\forall x \in X: (f(x) = y) \implies (f(f^{-1}(y)) = y)$ (More substitution)
+                \item $\forall y \in Y: \exists x \in X: f(x) = y$ (Given that f is a bijective function)
+                \item $\forall y \in Y: f(f^{-1}(y)) = y$ (Combination of last two statements)
+            \end{enumerate}
+        \item Let $f: X \rightarrow Y$ and $g: Y \rightarrow Z$ be bijective functions. \\
+            Prove $g \circ f$ is bijective.
+            \begin{enumerate}
+                \item $\forall y \in Y: \exists x \in X: f(x) = y$ (Given)
+                \item $\forall z \in Z: \exists y \in Y: g(y) = z$ (Given)
+                \item $\forall z \in Z: \exists x \in X: g(f(x)) = z$ (From previous two statements, proves surjectivity)
+                \item $(x \in X \land x' \in X \land x \neq x') \implies f(x) \neq f(x')$ (Given)
+                \item $(y \in Y \land y' \in Y \land y \neq Y') \implies g(y) \neq g(y')$ (Given)
+                \item $(x \in X \land x' \in X \land x \neq x') \implies g(f(x)) \neq g(f(x'))$ (From previous two statements, proves injectivity)
+            \end{enumerate}
+            Prove ${(g \circ f)}^{-1} = g^{-1} \circ f^{-1}$
+            \begin{enumerate}
+                \item The domain and range of these two function are the same ($Z \rightarrow X$). We must prove them equal for all inputs in their domain (X).
+                \item $\forall x \in X: (g \circ f)(x) = z \implies {(g \circ f)}^{-1}(z) = x$ (Definition of inverse function)
+                \item $\forall x \in X: {(g \circ f)}^{-1}(f(x)) = x$ (Substitution)
+                \item $\forall y \in Y: (g(y) = z) \implies (g^{-1}(z) = y)$ (Definition of inverse function)
+                \item $\forall y \in Y: (g^{-1}(g(y)) = y)$ (Substitution)
+                \item $\forall x \in X: ((g(f(x)) \equiv (g \circ f)(x)) = z) \implies (g^{-1}(z) = y = f(x))$ (Substitution)
+                \item $\forall x \in X: (f(x) = y) \implies (f^{-1}(y) = x)$ (Definition of inverse function)
+                \item $\forall x \in X: ((g \circ f)(x) = z) \implies (f^{-1}(g^{-1}(z)) = x)$ (Substitution)
+                \item $(g \circ f)$ is bijective, so $\forall z \in Z: \exists x \in X: (g \circ f)(x) = z$, so:
+                \item $\forall z \in Z: {(g \circ f)}^{-1}(z) = f^{-1}(g^{-1}(z)) = x$, where $(g \circ f)(x) = z$, and we have proved these function's equality on the domain Z.
+            \end{enumerate}
+        \item If $X$ is a subset of $Y$, let ${\iota}_{X \rightarrow Y}: X
+            \rightarrow Y$ be the inclusion map from $X$ to $Y$, defined by
+            mapping $x \mapsto x$ for all $x \in X$, i.e., ${\iota}_{X
+            \rightarrow Y}(x) := x$ for all $x \in X$.
+            \begin{enumerate}
+                \item Show that if $X \subseteq Y \subseteq Z$ then ${\iota}_{Y
+                    \rightarrow Z} \circ {\iota}_{X \rightarrow Y} = {\iota}_{X
+                    \rightarrow Z}$
+                    \begin{enumerate}
+                        \item $\forall y \in Y: {\iota}_{Y \rightarrow Z}(y) = y$ (Definition of ${\iota}_{Y \rightarrow Z}$)
+                        \item $\forall x \in X: x \in Y$ (Given)
+                        \item $\forall x \in X: {\iota}_{Y \rightarrow Z}(x) = x$ (Extension of statement i and ii)
+                        \item $\forall x \in X: {\iota}_{X \rightarrow Y}(x) = x$ (Definition of ${\iota}_{X \rightarrow Y}$)
+                        \item $\forall x \in X: {\iota}_{Y \rightarrow Z}({\iota}_{X \rightarrow Y}(x)) = x$ (Substitution for statement iii with statement iv)
+                        \item $\forall x \in X: {\iota}_{X \rightarrow Z}(x) = x$ (Definition of ${\iota}_{X \rightarrow Z}$)
+                        \item $\forall x \in X: {\iota}_{Y \rightarrow
+                            Z}({\iota}_{X \rightarrow Y}(x)) =  ({\iota}_{Y
+                            \rightarrow Z} \circ {\iota}_{X \rightarrow Y})(x) =
+                            {\iota}_{X \rightarrow Z}(x) = x$ (Last two statements)
+                        \item The domain and range of of ${\iota}_{X \rightarrow Z}$ are equal to the domain and range of ${\iota}_{X \rightarrow Y} \circ {\iota}_{Y \rightarrow Z}$. (Definition of both functions)
+                        \item As a consequence of the last two statements, by
+                            definition of functional equality, ${\iota}_{Y
+                            \rightarrow Z} \circ {\iota}_{X \rightarrow Y} =
+                            {\iota}_{X \rightarrow Z}$
+                    \end{enumerate}
+                \item Show that if $f : A \rightarrow B$ is any function, then $f = f \circ {\iota}_{A \rightarrow A} = {\iota}_{B \rightarrow B} \circ f$
+                    \begin{enumerate}
+                        \item $\forall x \in A: {\iota}_{A \rightarrow A}(x) = x$ (Definiton of ${\iota}_{A \rightarrow A}$)
+                        \item $\forall x \in B: {\iota}_{B \rightarrow B}(x) = x$ (Definiton of ${\iota}_{A \rightarrow A}$)
+                        \item $f$ has a range of $B$. (Given definition of f)
+                        \item $\forall x \in A: f(x) = ({\iota}_{B \rightarrow B} \circ f)(x)$ (ii and iii)
+                        \item $f$ has a domain of $A$ and ${\iota}_{A \rightarrow A}(x)$ is a bijective function with a domain and range of $A$.
+                        \item $\forall x \in A: f(x) = f({\iota}_{A \rightarrow A}(x))$ (i and v)
+                        \item $f$ has the same domain and range as $f \circ
+                            {\iota}_{A \rightarrow A}$ has the same domain and
+                            range as ${\iota}_{B \rightarrow B}$
+                        \item By the definitions of functional equality, 
+                    \end{enumerate}
+                \item Show that if $f : A \rightarrow B$ is a bijective
+                    function, then $f \circ f^{-1} = {\iota}_{B \rightarrow
+                    B}(x) = x$ and $f^{-1} \circ f = {\iota}_{A \rightarrow A}$
+                    \begin{enumerate}
+                        \item 
+                    \end{enumerate}
             \end{enumerate}
     \end{enumerate}
 \end{document}
