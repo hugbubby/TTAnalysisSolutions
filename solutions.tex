@@ -469,18 +469,17 @@
             \end{enumerate}
             Proof $(f = g \land h = j) \implies f \circ g = h \circ j$ \\
             TBD
-        \item Proof for two functions $f$ and $g$, where the domain of g is
+        \item Proof that for two functions $f$ and $g$, where the domain of g is
             equal to the range of f, if f and g are injective, then $g \circ f$
             is injective.
             \begin{enumerate}
-                \item Consider the domain of f X and range of f Y, where the domain of g is the same as the range of f.
-                \item $\forall x \in X: (x \neq x') \implies (f(x) \neq f(x'))$ (Given)
-                \item $\forall y \in Y: (y \neq y') \implies (g(y) \neq g(y'))$ (Given)
+                \item $\forall x \in X: (x \neq x') \implies (f(x) \neq f(x'))$ (Given by injectivity)
+                \item $\forall y \in Y: (y \neq y') \implies (g(y) \neq g(y'))$ (Given by injectivity)
                 \item Consider two unequal $x,x' \in X$. $f(x) \neq f(x')$, as given by the earlier statement.
                 \item Since $f(x) \neq f(x')$, and $f(x) \in Y \land f(x') \in
-                    Y$, $g(f(x)) \neq g(f(x'))$, as a result of the earlier
-                    implication. This is the definition of injectivity, and so the
-                    composition $g \circ f$ must be injective.
+                    Y$, it is also true that $g(f(x)) \neq g(f(x'))$, by its
+                    injectivity. Since this is true for all $x \neq x'$, the
+                    composition $g \circ f$ must itself be injective.
             \end{enumerate}
             Proof for two functions $f$ and $g$, where the domain of g is
             equal to the range of f, if f and g are surjective, then $g \circ f$
