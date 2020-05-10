@@ -87,17 +87,18 @@
             \end{enumerate}
             Proof $A \cup A = A$
             \begin{enumerate}
-                \item For the sake of contradiction assume $A \neq A \cup A$
-                \item This means $(\exists x \in A: x \notin A \cup A) \lor
-                    (\exists x \in A \cup A: x \notin A)$.
-                \item Suppose for sake of contradiction $\exists x \in A: x \in A \cup A$.
-                \item But $x \notin A \cup A \rightarrow (x \notin A \land x
-                    \notin A)$, a contradiction. So, $\neg\exists x \in A: x \notin A \cup A$. 
-                \item This means that, given our starting assumption, $\exists x \in A \cup A: x \notin A$.
+                \item Suppose for the sake of contradiction, the hypothesis $\exists x \in A: x \notin A \cup A$.
+                \item By the definition of union, $x \notin A \cup A
+                    \rightarrow x \notin A \land x \notin A$, logically
+                    equivalent to $x \notin A \cup A \rightarrow x \notin A$,
+                    a contradiction. So, $\forall x \in A: x
+                    \in A \cup A$. 
+                \item Suppose for the sake of contradiction, the hypothesis $\exists x \in A \cup A: x \notin A$.
                 \item But $x \in A \cup A \implies (x \in A \lor x \in A)$,
                     which is equivalent to saying $x \in A \cup A \implies (x
-                    \in A)$, a contradiction. So we know that $A$ must equal $A
-                    \cup A$
+                    \in A)$, a contradiction. So we know that $\forall x \in A
+                    \cup A: x \in A$, and that $A$ must equal $A \cup A$ by the
+                    definition of set equality.
             \end{enumerate}
             Proof $A \cup \emptyset = A$ and $\emptyset \cup A = A$
             \begin{enumerate}
